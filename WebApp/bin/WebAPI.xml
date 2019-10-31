@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebAPI</name>
+    </assembly>
+    <members>
+        <member name="M:WebAPI.Controllers.AlunoController.Recuperar">
+            <summary>
+             Buscar Todos Alunos
+            </summary>
+            <remarks>Retorna uma lista de alunos Json do banco de dados</remarks>
+            <response code="500">Internal Server Error</response>
+        </member>
+        <member name="M:WebAPI.Controllers.AlunoController.RecuperarPorId(System.Int32)">
+            <summary>
+             Buscar Aluno Por ID
+            </summary>
+            <remarks>Retorna um Aluno do banco de dados</remarks>
+        </member>
+        <member name="M:WebAPI.Controllers.AlunoController.Post(WebAPI.Domain.AlunoDTO)">
+            <summary>
+             Criar um novo Aluno
+            </summary>
+            <remarks>Criar um Aluno do banco de dados</remarks>
+        </member>
+        <member name="M:WebAPI.Controllers.AlunoController.Put(System.Int32,WebAPI.Domain.AlunoDTO)">
+            <summary>
+             Atualizar Aluno 
+            </summary>
+            <remarks>Atualiza um Aluno do banco de dados</remarks>
+        </member>
+        <member name="M:WebAPI.Controllers.AlunoController.Delete(System.Int32)">
+            <summary>
+             Deletar Aluno
+            </summary>
+            <remarks>Deleta um Aluno do banco de dados</remarks>
+        </member>
+        <member name="T:WebAPI.Domain.AlunoDTO">
+            <summary>
+             Classe responsavel por modelar propriedades do Alnuno 
+            </summary>
+        </member>
+        <member name="P:WebAPI.Domain.AlunoDTO.id">
+            <summary>
+             Id
+            </summary>
+        </member>
+        <member name="P:WebAPI.Domain.AlunoDTO.nome">
+            <summary>
+             Nome
+            </summary>
+        </member>
+        <member name="P:WebAPI.Domain.AlunoDTO.sobrenome">
+            <summary>
+            Sobrenome 
+            /// </summary>
+        </member>
+        <member name="P:WebAPI.Domain.AlunoDTO.telefone">
+            <summary>
+             Telefone
+            </summary>
+        </member>
+        <member name="P:WebAPI.Domain.AlunoDTO.ra">
+            <summary>
+             Ra
+            </summary>
+        </member>
+        <member name="T:WebAPI.Models.AlunoModel">
+            <summary>
+             Classe responsavel por unir classe AlunoDTO com AludoDAO para manipular os dados 
+            </summary>
+        </member>
+        <member name="M:WebAPI.Models.AlunoModel.ListarAluno(System.Nullable{System.Int32})">
+            <summary>
+             Buscar Todos Alunos
+            </summary>
+            <remarks>Retorna uma lista de alunos Json do banco de dados</remarks>
+        </member>
+        <member name="M:WebAPI.Models.AlunoModel.Inserir(WebAPI.Domain.AlunoDTO)">
+            <summary>
+             Criar um novo Aluno
+            </summary>
+            <remarks>Criar um Aluno do banco de dados</remarks>
+        </member>
+        <member name="M:WebAPI.Models.AlunoModel.Atualizar(WebAPI.Domain.AlunoDTO)">
+            <summary>
+             Atualizar Aluno Por ID
+            </summary>
+            <remarks>Atualiza um Aluno do banco de dados</remarks>
+        </member>
+        <member name="M:WebAPI.Models.AlunoModel.Deletar(System.Int32)">
+            <summary>
+             Deletar Aluno 
+            </summary>
+            <remarks>Deleta um Aluno do banco de dados</remarks>
+        </member>
+        <member name="T:WebAPI.Repository.AlunoDAO">
+            <summary>
+             Classe responsavel por acesso a banco de dados 
+            </summary>
+        </member>
+        <member name="F:WebAPI.Repository.AlunoDAO.stringConexao">
+            <summary>
+             stringConexao 
+            </summary>
+            <remarks>string de Conexao com banco de dados</remarks>
+        </member>
+        <member name="M:WebAPI.Repository.AlunoDAO.#ctor">
+            <summary>
+             Construtor responsavel por abrir a conexao com banco de dados 
+            </summary>
+        </member>
+        <member name="M:WebAPI.Repository.AlunoDAO.ListarAlunosDB(System.Nullable{System.Int32})">
+            <summary>
+             Metodo responsavel por listas aluno no banco de dados 
+            </summary>
+        </member>
+        <member name="M:WebAPI.Repository.AlunoDAO.InserirAlunoDB(WebAPI.Domain.AlunoDTO)">
+            <summary>
+             Metodo responsavel por Inserir aluno no banco de dados 
+            </summary>
+        </member>
+        <member name="M:WebAPI.Repository.AlunoDAO.AtualizarAlunoDB(WebAPI.Domain.AlunoDTO)">
+            <summary>
+             Metodo responsavel por Atualizar aluno no banco de dados 
+            </summary>
+        </member>
+        <member name="M:WebAPI.Repository.AlunoDAO.DeletarAlunoDB(System.Int32)">
+            <summary>
+             Metodo responsavel por Deletar aluno no banco de dados 
+            </summary>
+        </member>
+        <member name="T:WebAPI.Startup">
+            <summary>
+             Classe responsavel inciar a aplicacao
+            </summary>
+        </member>
+        <member name="M:WebAPI.Startup.Configuration(Owin.IAppBuilder)">
+            <summary>
+             Adicionando configuracoes
+            </summary>
+        </member>
+    </members>
+</doc>
