@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebAPI.Domain
+namespace WebAPI.Models
 {
     /// <summary>
     ///  Classe responsavel por modelar propriedades do Alnuno 
     /// </summary>
-    public class AlunoDTO
+    public class Aluno
     {
 
         /// <summary>

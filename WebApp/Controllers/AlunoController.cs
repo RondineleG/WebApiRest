@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using WebAPI.Domain;
 using WebAPI.Models;
 
 namespace WebAPI.Controllers
@@ -11,8 +10,6 @@ namespace WebAPI.Controllers
     [RoutePrefix("api/Aluno")]
     public class AlunoController : ApiController
     {
-
-
         /// <summary>
         ///  Buscar Todos Alunos
         /// </summary>
@@ -26,7 +23,7 @@ namespace WebAPI.Controllers
         {
             try
             {
-                AlunoModel aluno = new AlunoModel();
+                var aluno = new AlunoModel();
 
                 var alunos = aluno.ListarAluno();
 
@@ -48,7 +45,7 @@ namespace WebAPI.Controllers
         {
             try
             {
-                AlunoModel aluno = new AlunoModel();
+                var aluno = new AlunoModel();
 
                 return Ok(aluno.ListarAluno(id).FirstOrDefault());
             }
@@ -64,14 +61,14 @@ namespace WebAPI.Controllers
         /// </summary>
         /// <remarks>Criar um Aluno do banco de dados</remarks>
         [HttpPost]
-        public IHttpActionResult Post(AlunoDTO aluno)
+        public IHttpActionResult Post(Aluno aluno)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             try
             {
-                AlunoModel _aluno = new AlunoModel();
+                var _aluno = new AlunoModel();
 
                 _aluno.Inserir(aluno);
 
@@ -88,11 +85,11 @@ namespace WebAPI.Controllers
         /// </summary>
         /// <remarks>Atualiza um Aluno do banco de dados</remarks>
         [HttpPut]
-        public IHttpActionResult Put(int id, [FromBody]AlunoDTO aluno)
+        public IHttpActionResult Put(int id, [FromBody]Aluno aluno)
         {
             try
             {
-                AlunoModel _aluno = new AlunoModel();
+                var _aluno = new AlunoModel();
                 aluno.id = id;
                 _aluno.Atualizar(aluno);
 
@@ -113,7 +110,7 @@ namespace WebAPI.Controllers
         {
             try
             {
-                AlunoModel _aluno = new AlunoModel();
+                var _aluno = new AlunoModel();
                 _aluno.Deletar(id);
 
                 return Ok("Deletado com Sucesso");

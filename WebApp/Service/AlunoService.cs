@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using WebAPI.Domain;
 using WebAPI.Repository;
 
 namespace WebAPI.Models
@@ -13,11 +12,11 @@ namespace WebAPI.Models
         ///  Buscar Todos Alunos
         /// </summary>
         /// <remarks>Retorna uma lista de alunos Json do banco de dados</remarks>
-        public List<AlunoDTO> ListarAluno(int? id = null)
+        public List<Aluno> ListarAluno(int? id = null)
         {
             try
             {
-                var alunoBD = new AlunoDAO();
+                var alunoBD = new AlunoRepository();
                 return alunoBD.ListarAlunosDB(id);
             }
             catch (Exception ex)
@@ -30,11 +29,11 @@ namespace WebAPI.Models
         ///  Criar um novo Aluno
         /// </summary>
         /// <remarks>Criar um Aluno do banco de dados</remarks>
-        public void Inserir(AlunoDTO aluno)
+        public void Inserir(Aluno aluno)
         {
             try
             {
-                var alunoBD = new AlunoDAO();
+                var alunoBD = new AlunoRepository();
                 alunoBD.InserirAlunoDB(aluno);
             }
             catch (Exception ex)
@@ -47,11 +46,11 @@ namespace WebAPI.Models
         ///  Atualizar Aluno Por ID
         /// </summary>
         /// <remarks>Atualiza um Aluno do banco de dados</remarks>
-        public void Atualizar(AlunoDTO aluno)
+        public void Atualizar(Aluno aluno)
         {
             try
             {
-                var alunoBD = new AlunoDAO();
+                var alunoBD = new AlunoRepository();
                 alunoBD.AtualizarAlunoDB(aluno);
             }
             catch (Exception ex)
@@ -68,7 +67,7 @@ namespace WebAPI.Models
         {
             try
             {
-                var alunoBD = new AlunoDAO();
+                var alunoBD = new AlunoRepository();
                 alunoBD.DeletarAlunoDB(id);
             }
             catch (Exception ex)

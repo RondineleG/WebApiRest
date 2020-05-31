@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using WebAPI.Domain;
+using WebAPI.Models;
 
 namespace WebAPI.Repository
 {
-        /// <summary>
-        ///  Classe responsavel por acesso a banco de dados 
-        /// </summary>
-    public class AlunoDAO
+    /// <summary>
+    ///  Classe responsavel por acesso a banco de dados 
+    /// </summary>
+    public class AlunoRepository
     {
         /// <summary>
         ///  stringConexao 
@@ -22,7 +22,7 @@ namespace WebAPI.Repository
         /// <summary>
         ///  Construtor responsavel por abrir a conexao com banco de dados 
         /// </summary>
-        public AlunoDAO()
+        public AlunoRepository()
         {
             conexao = new SqlConnection(stringConexao);
             conexao.Open();
@@ -32,9 +32,9 @@ namespace WebAPI.Repository
         /// <summary>
         ///  Metodo responsavel por listas aluno no banco de dados 
         /// </summary>
-        public List<AlunoDTO> ListarAlunosDB(int? id = null)
+        public List<Aluno> ListarAlunosDB(int? id = null)
         {
-            var listaAlunos = new List<AlunoDTO>();
+            var listaAlunos = new List<Aluno>();
 
             try
             {
@@ -48,7 +48,7 @@ namespace WebAPI.Repository
                 IDataReader resultado = selectCmd.ExecuteReader();
                 while (resultado.Read())
                 {
-                    var alu = new AlunoDTO
+                    var alu = new Aluno
                     {
                         id = Convert.ToInt32(resultado["Id"]),
                         nome = Convert.ToString(resultado["nome"]),
@@ -75,7 +75,7 @@ namespace WebAPI.Repository
         /// <summary>
         ///  Metodo responsavel por Inserir aluno no banco de dados 
         /// </summary>
-        public void InserirAlunoDB(AlunoDTO aluno)
+        public void InserirAlunoDB(Aluno aluno)
         {
             try
             {
@@ -109,7 +109,7 @@ namespace WebAPI.Repository
         /// <summary>
         ///  Metodo responsavel por Atualizar aluno no banco de dados 
         /// </summary>
-        public void AtualizarAlunoDB(AlunoDTO aluno)
+        public void AtualizarAlunoDB(Aluno aluno)
         {
             try
             {
